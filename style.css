@@ -1,0 +1,980 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+html{
+  scroll-behavior: smooth;
+  
+}
+
+:root {
+  --amarelo-color: #ffeb8a;
+  --amarelo-escuro: #feca5f;
+  --Verde-color: #8ccc54;
+  --Branco-color: #ffffff;
+  --Laranja-color: #ff9460;
+  --Laranja-claro: #f7a77fc2;
+  --Cinza-color: #2d2735;
+  --Azul-color: #1c2147;
+  --Azul-claro: #d3ecf0;
+  --Rosa-color:#EFADB9;
+}
+
+/*menu*/
+.navbar {
+  width: 100%;
+  text-transform: uppercase;
+  color: var(--Azul-color);
+  font-size: 0.75rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--Azul-claro); /* Cor de fundo para a navbar */
+  padding: 10px 0; /* Espaçamento interno da navbar */
+  cursor: pointer;
+}
+
+.navbar li:hover {
+  color: var(--Laranja-claro);
+}
+
+.navbar li i {
+  color: var(--Azul-color);
+}
+
+.navbar_destinos li i {
+  margin: 0 10px;
+}
+
+/* Estilos para as seções dentro da navbar */
+.section_navbar {
+  display: flex;
+  align-items: center;
+}
+
+/* Estilos para as listas dentro das seções da navbar */
+.navbar_destinos,
+.navbar_listas,
+.navbar_redes {
+  display: flex;
+  list-style: none;
+}
+
+/* Estilos para os itens da lista */
+.navbar_destinos li,
+.navbar_listas li {
+  margin: 0 20px; /* Espaçamento entre os itens das seções destinos e listas */
+  display: flex;
+  align-items: center;
+}
+
+.navbar_redes li {
+  margin: 0 5px; /* Espaçamento reduzido entre os itens das redes sociais */
+  display: flex;
+  align-items: center;
+}
+
+.navbar_redes li i {
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  padding: 0 1rem;
+  height: 40px;
+  width: 40px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.navbar_redes li i:hover {
+  color: var(--Branco-color);
+  background-color: var(--Azul-color);
+}
+
+/*dropdown*/
+.dropdown,
+.dropdown-sobre {
+  cursor: pointer;
+  position: relative;
+}
+
+.dropdown a,
+.dropdown-sobre a {
+  color: var(--Azul-color);
+  text-decoration: none;
+}
+
+.dropdown_menu {
+  position: absolute;
+  display: none;
+  top: 100%; /* Coloca o dropdown abaixo do item pai */
+  left: 0;
+  transition: background-color 0.3s ease;
+  white-space: nowrap; /* Impede a quebra de linha */
+  z-index: 1;
+}
+
+.dropdown_menu a {
+  display: block;
+  color: var(--Azul-color);
+  background-color: var(--Azul-claro);
+  padding: 10px 60px 10px 10px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown .dropdown_menu a:hover,
+.dropdown-sobre .dropdown_menu a:hover {
+  background-color: var(--Laranja-claro);
+}
+
+.dropdown:hover .dropdown_menu,
+.dropdown-sobre:hover .dropdown_menu {
+  display: block; /* Mostra o dropdown ao passar o mouse */
+  
+}
+
+.dropdown-sobre i {
+  margin-left: 5px;
+}
+
+.dropdown_menu a {
+  padding: 10px 100px 10px 5px;
+}
+ /*NAV BAR RESPOSIVO*/
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+.menu-toggle i {
+  font-size: 1.5rem;
+}
+
+.menu-toggle-list{
+  display: none;
+}
+
+.open{
+  display: block;
+}
+
+/*sessão com itens de navegação*/
+.section_menu {
+  background-color: var(--Branco-color);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.logo p {
+  font-family: "Caveat", cursive;
+  font-size: 2.5rem;
+  color: var(--Cinza-color);
+}
+
+.section_nav {
+  display: flex;
+}
+
+.section_nav:hover {
+  cursor: pointer;
+}
+
+.itens_navegacao li {
+  display: inline-block;
+  padding: 1.5rem;
+  position: relative; /* Adicionei posição relativa para permitir sobreposição do ícone e link */
+  transition: color 0.3s ease; /* Transição suave para a mudança de cor */
+}
+
+.itens_navegacao li a {
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  color: var(--Cinza-color);
+  transition: color 0.3s ease; /* Transição suave para a mudança de cor */
+}
+
+.itens_navegacao li i {
+  display: block;
+  text-align: center;
+  padding-bottom: 0.5rem;
+  font-size: 1.4rem;
+  transition: color 0.3s ease; /* Transição suave para a mudança de cor */
+}
+
+/* Quando passar o mouse sobre o item da lista */
+.itens_navegacao li:hover {
+  color: var(--Azul-color); /* Cor de destaque para o texto */
+}
+
+/* Atribui a mesma cor ao ícone e ao link quando passar o mouse */
+.itens_navegacao li:hover i,
+.itens_navegacao li:hover a {
+  color: var(--amarelo-escuro); /* Cor de destaque */
+}
+
+.home-item i,
+.home-item a {
+  color: var(--amarelo-escuro); /* Cor amarela */
+}
+/*sessão de pesquisa*/
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15%;
+  height: auto;
+  padding: 10px 0px;
+}
+/*tamanho imagem*/
+.container-search-img img {
+  height: 28rem;
+}
+
+.container-search h1 {
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 2.625rem;
+  color: var(--Azul-color);
+  padding-bottom: 1rem;
+}
+.container-search p {
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 1.25rem;
+  color: var(--Azul-color);
+  padding-bottom: 1rem;
+}
+.container-search form input {
+  width: 80%;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid var(--Cinza-color);
+}
+
+/*trocando a cor da borda do input quando selecionado*/
+input:focus,
+input:valid {
+  outline: none;
+}
+/*trocando a cor da escrida dentro do input*/
+input {
+  color: var(--Cinza-color);
+  font-size: 1rem;
+}
+::-webkit-input-placeholder {
+  color: var(--Cinza-color);
+  font-size: 0.75rem;
+}
+
+/*estilizando o butão de pesquisa*/
+.container-search form button {
+  background-color: var(--amarelo-escuro);
+  border: none;
+  border-radius: 8px;
+  width: 100px;
+  cursor: pointer;
+  padding: 13px 10px;
+  margin-bottom: 1rem;
+  color: var(--Branco-color);
+  transition: color 0.3s ease;
+  text-align: center;
+}
+.container-search form button:hover {
+  background-color: var(--amarelo-color);
+}
+
+/*estilizando escrita abaixo da pesquisa*/
+.mais-buscados {
+  display: flex;
+  justify-self: center;
+  position: relative;
+  gap: 8px;
+}
+.mais-buscados a {
+  text-decoration: none;
+  color: var(--Azul-color);
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.mais-buscados a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.div_span {
+  position: relative;
+  background-color: var(--amarelo-escuro);
+  padding: 0 3rem;
+  height: 10px;
+  border-radius: 2px;
+  margin-top: 12px;
+}
+.container-search span {
+  white-space: nowrap;
+  position: absolute;
+  font-size: 1rem;
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: bold;
+  color: var(--Azul-color);
+  left: 0;
+  margin-top: -12px;
+}
+
+/*sessão cupom de desconto*/
+.container-descontos {
+  background-color: #EFADB9;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+.container-descontos strong {
+  color: var(--Branco-color);
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 2rem;
+  text-align: center;
+}
+.container-descontos-titlle p {
+  line-height: 30px;
+}
+.container-descontos-descri p {
+  color: var(--Branco-color);
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+}
+
+.container-descontos-link a {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  text-decoration: none;
+  text-align: center;
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 600;
+  color: #EFADB9;
+  background-color: var(--Branco-color);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+/*SESSÃO NOVIDADES NO BLOG*/
+.section-novidades {
+  height: auto;
+  background-image: url("./img/backgroud.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.nav-novidades {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem 2rem;
+}
+.nav-novidades p {
+  font-family: "Caveat", cursive;
+  font-size: 2.62rem;
+}
+.nav-novidades-links a {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-right: 10px;
+  transition: color 0.3s ease;
+  color: var(--Cinza-color);
+}
+.nav-novidades-links a:hover {
+  color: var(--Laranja-claro);
+}
+
+/*sessão de galerias-novidades no blog*/
+
+.galery-link {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.article-galery {
+  flex: 1 1 calc(33.33% - 40px);
+  background-color: var(--Branco-color);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.article-galery a {
+  color: var(--Cinza-color);
+  text-decoration: none;
+}
+.article-galery img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.article-galery p {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: var(--Cinza-color);
+  font-family: "Source Sans 3", sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/*SESSÃO PLENEJE SUA VIAGEM*/
+.setion-planeje {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 1rem;
+  gap: 10%;
+}
+.viagem-img img {
+  height: 25rem;
+}
+.container-viagem span {
+  font-family: "Caveat", cursive;
+  font-size: 3.75rem;
+}
+.container-viagem p {
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 1.12rem;
+  margin-bottom: 1rem;
+}
+.viagem-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 400px;
+  padding: 0;
+}
+.viagem-links a {
+  text-wrap: nowrap;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: #EFADB9;
+  font-weight: 600;
+  width: calc(50% - 50px); /* Duas colunas com espaçamento */
+  padding: 10px;
+  display: block;
+}
+
+.viagem-links i {
+  color: var(--Cinza-color);
+}
+/*sessão viage comigo*/
+.section-viajecomigo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 1rem;
+  gap: 10%;
+  background-image: url("./img/1.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.section-viajecomigo-descri span{
+  font-family: "Caveat", cursive;
+  font-size: 3.75rem;
+}
+.section-viajecomigo-descri p {
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 1.12rem;
+  margin-bottom: 1rem;
+}
+
+.container_form{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.container_form label{
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 1rem;
+}
+.container_form input{
+  width: 100%;
+  height: 42px;
+  padding: 0 50px 0 10px;
+  border: 1px solid rgb(0, 0, 0, .1);
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.container_form-submit{
+  background-color: var(--Azul-color);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 8px;
+  color: var(--Branco-color);
+  cursor: pointer;
+}
+
+/*sessão creditos finais*/
+
+hr{
+  width: 150%;
+  border: 0;
+  height: 1px;
+  background-color: rgb(0, 0, 0, .1);
+  margin-top: 5px; 
+  margin-bottom: 20px;
+}
+
+.section-creditos{
+  display: flex;
+  cursor: pointer;
+ justify-content: space-around;
+  padding: 3rem 3rem;
+  background-color: var(--Branco-color);
+}
+.container-creditos strong{
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.87rem;
+  margin-top: 20px; 
+  margin-bottom: 20px;
+}
+.container-creditos strong:hover{
+  color: var(--amarelo-escuro);
+}
+.container-creditos p:hover{
+  color: var(--amarelo-escuro);
+}
+
+.container-creditos p{
+  font-size: 0.80rem;
+  font-family: "Source Sans 3", sans-serif;
+  color: var(--Azul-color);
+}
+
+
+
+footer{
+  background-color: var(--Rosa-color);
+  padding: 1rem 2rem;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  gap: 15%;
+}
+footer p{
+  font-size: 0.81rem;
+  font-family: "Source Sans 3", sans-serif;
+  color: var(--Cinza-color);
+}
+footer a{
+  text-decoration: none;
+  margin-right: 10px;
+  font-size: 0.81rem;
+  font-family: "Source Sans 3", sans-serif;
+  color: var(--Cinza-color);
+}
+footer a:hover{
+  text-decoration: underline;
+}
+
+/*link para voltar ao top*/
+
+.scrooll-link{
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .04s ease;
+}
+.scrooll-link a {
+  text-decoration: none;
+  color: var(--Branco-color);
+  background-color: var(--amarelo-escuro);
+  padding: 20px 30px; 
+  border-radius: 50%; 
+  position: fixed;
+  right: 15px; 
+  bottom: 50px; 
+  box-shadow: 3px 3px 5px #c8c7c9;
+  
+}
+.scrooll-link.active{
+ opacity: 1;
+ visibility: visible;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media Queries para responsividade */
+@media (max-width: 760px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .section_navbar {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .section_navbar ul {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .section_navbar ul li {
+    margin: 10px 0;
+  }
+  /*NAV BAR RESPOSIVO*/
+  .menu-toggle {
+    display: block;
+  }
+  .menu-toggle button{
+    border: none;
+    background-color: transparent;
+    padding: 1rem;
+    color: var(--Azul-color);
+    cursor: pointer;
+  }
+  .itens_navegacao li{
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+  }
+  .itens_navegacao li i {
+    margin-right: 10px;
+  }
+
+  .itens_navegacao li{
+    width: 100vw;
+    padding: 1rem;
+    border-bottom: 1px solid #8f8a8ab6;
+  }
+  
+  .menu-toggle.active + .section_navbar {
+    display: flex;
+  }
+
+
+  .menu-toggle-list {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease; /* Transição de 0.3 segundos com efeito ease */
+  }
+  
+  .menu-toggle-list.open {
+    max-height: 500px; /* Altura máxima para o menu expandido */
+  }
+
+  .dropdown_menu {
+    position: static;
+    display: none;
+    width: 100%;
+  }
+
+  .dropdown:hover .dropdown_menu,
+  .dropdown-sobre:hover .dropdown_menu {
+    display: none;
+  }
+
+  .dropdown_menu a {
+    padding: 10px 20px;
+  }
+
+  .logo {
+    display: none;
+  }
+  .section_nav {
+    display: none;
+  }
+  .search {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15%;
+    height: auto;
+    padding: 1rem 1rem;
+  }
+  .container-search h1 {
+    font-size: 1.5rem;
+  }
+  .container-search p {
+    font-size: 1rem;
+  }
+  .container-search form input {
+    width: 70%;
+  }
+  .container-search form button {
+    width: 50px;
+    padding: 10px 20px;
+    margin-bottom: 1rem;
+  }
+  .container-search span {
+    font-size: 0.75rem;
+    margin-top: -7px;
+  }
+
+  .div_span {
+    position: relative;
+    background-color: var(--amarelo-escuro);
+    padding: 0 2.5rem;
+    height: 12px;
+    margin-top: 10px;
+  }
+  .mais-buscados a {
+    font-size: 0.8rem;
+  }
+  .container-search-img img {
+    height: 20rem;
+  }
+  .container-descontos {
+    flex-direction: column;
+  }
+  .container-descontos strong {
+    font-size: 1.75rem;
+  }
+  .container-descontos-descri p {
+    font-size: 0.95rem;
+    margin-bottom: 1.1rem;
+  }
+  .container-descontos-titlle {
+    display: none;
+  }
+  .container-descontos-link a {
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+  .galery-link {
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+  .setion-planeje {
+    flex-direction: column;
+    padding: 1rem 1rem;
+  }
+  .container-viagem span {
+    font-size: 2.75rem;
+  }
+  .container-viagem p {
+    font-size: 1rem;
+  }
+  .viagem-links {
+    display: flex;
+    flex-direction: column;
+    }
+  .viagem-links a {
+    text-wrap: nowrap;
+    font-size: 0.75rem;
+    }
+    .viagem-links i {
+        padding-right: 10px;
+    }
+    .viagem-img img {
+       display: none;
+    }
+    .section-viajecomigo {
+      flex-direction: column;
+  }
+  .section-viajecomigo-descri {
+    text-align: center;
+  }
+  .section-viajecomigo-descri span {
+    font-size: 3.5rem;
+  }
+  .section-viajecomigo-descri p {
+    font-size: 1rem;
+  }
+  .section-creditos {
+    display: flex;
+    flex-direction: column;
+  }
+  hr {
+    width: 50%;
+ }
+ .container-creditos strong {
+  color: var(--amarelo-escuro);
+ }
+}
+
+@media (max-width: 1300px) {
+  .search {
+    height: auto;
+    padding: 1rem 1rem;
+    gap: 13px;
+  }
+  .container-search h1 {
+    font-size: 1.7rem;
+  }
+
+  .container-search form button {
+    width: 50px;
+    padding: 10px 20px;
+    margin-bottom: 1rem;
+  }
+  .mais-buscados a {
+    font-size: 1rem;
+  }
+  .container-search-img img {
+    height: 25rem;
+  }
+
+  .container-descontos strong {
+    font-size: 1.75rem;
+  }
+  .container-descontos-descri p {
+    font-size: 0.95rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .container-descontos-link a {
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 1000px) {
+  .section_menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .search {
+    gap: 5%;
+  }
+
+  .container-search-img img {
+    height: 20rem;
+  }
+  .galery-link {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 860px) {
+  .section_menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .search {
+    gap: 5%;
+  }
+
+  .container-search-img img {
+    height: 20rem;
+  }
+  .galery-link {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .galery-link {
+    justify-content: center;
+    gap: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .setion-planeje {
+    flex-direction: column;
+    padding: 1rem 1rem;
+  }
+  .container-viagem span {
+    font-size: 2.75rem;
+  }
+  .container-viagem p {
+    font-size: 1rem;
+  }
+  .viagem-links {
+    display: flex;
+    }
+  .viagem-links a {
+    text-wrap: nowrap;
+    font-size: 0.75rem;
+    }
+    .viagem-links i {
+        padding-right: 10px;
+    }
+    .viagem-img img {
+       display: none;
+    }
+    .container-descontos {
+      flex-direction: column;
+    }
+    .container-descontos strong {
+      font-size: 1.75rem;
+    }
+    .container-descontos-descri p {
+      font-size: 0.95rem;
+      margin-bottom: 1.1rem;
+    }
+    .container-descontos-titlle {
+      display: none;
+    }
+    .container-descontos-link a {
+      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+    
+}
